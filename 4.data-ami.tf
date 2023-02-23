@@ -1,4 +1,5 @@
-data "aws_ami" "amznlinux" {
+#this data source block will query the ami as per the region you specified in provider file
+data "aws_ami" "testimage" {
   
   most_recent      = true
   
