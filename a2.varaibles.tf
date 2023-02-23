@@ -12,5 +12,6 @@ variable "instance_type" {
 
 variable "user_name" {
   type = list(string)
-  default = [ "darth","luke","yoda" ]
+  default = [ "darth","yoda" ]
+ # key = value
 }

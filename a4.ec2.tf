@@ -11,8 +11,14 @@ resource "aws_instance" "name" {
   }
 }
 
-resource "aws_iam_user" "user" {
+/*resource "aws_iam_user" "user" {
   count = length(var.user_name)
   name = var.user_name[count.index]
+  #user neo.0 neo.1 neo.2
+}*/
+
+resource "aws_iam_user" "user" {
+  for_each = toset(var.user_name)
+  name = each.value
   #user neo.0 neo.1 neo.2
 }
