@@ -11,8 +11,8 @@ resource "aws_instance" "name" {
   }
 }
 
-/*resource "aws_iam_user" "user" {
-  count = 3
-  name = "neo.${count.index}"
-  #user neo.1 neo.2 neo.3 
-}*/
+resource "aws_iam_user" "user" {
+  count = length(var.user_name)
+  name = var.user_name[count.index]
+  #user neo.0 neo.1 neo.2
+}
