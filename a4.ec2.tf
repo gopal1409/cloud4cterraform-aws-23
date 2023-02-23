@@ -4,7 +4,15 @@ resource "aws_instance" "name" {
   user_data = file("${path.module}/app1-install.sh")
   ###any resource which accept multiple values it should inside square bracket or array
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id,aws_security_group.vpc-http.id ]
+  count = 2
+  #whole number
   tags = {
-    "name" = "ec2-gopal"
+    "name" = "Count-Demo-${count.index}"
   }
 }
+
+/*resource "aws_iam_user" "user" {
+  count = 3
+  name = "neo.${count.index}"
+  #user neo.1 neo.2 neo.3 
+}*/
