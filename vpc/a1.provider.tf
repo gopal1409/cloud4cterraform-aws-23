@@ -6,9 +6,6 @@ terraform {
       #version = "~> 4.0"
       #in production always put this version number
     }
-    null = {
-      source = "hashicorp/null"
-    }
   }
 }
 
