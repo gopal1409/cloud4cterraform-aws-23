@@ -7,7 +7,7 @@ resource "aws_eip" "bastion_ip" {
   tags = local.common_tags
    provisioner "local-exec" {
    
-    command = "eip destroyed on 'date'  >> destroytime.txt"
+    command = "echo eip destroyed on 'date'  >> destroytime.txt"
     working_dir = "local-exec-output-files"
     when=destroy
   }
