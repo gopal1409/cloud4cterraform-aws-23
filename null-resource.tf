@@ -26,4 +26,5 @@ resource "null_resource" "name" {
     command = "echo vpc created on 'date' and VPC id: ${module.vpc.vpc_id} >> vpc-time.txt"
     working_dir = "local-exec-output-files"
   }
+ 
 }
