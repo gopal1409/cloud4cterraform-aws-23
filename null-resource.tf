@@ -22,4 +22,8 @@ resource "null_resource" "name" {
       "echo Hello from null provisione >> hello.txt",
     ]
   }
+  provisioner "local-exec" {
+    command = "echo vpc created on 'date' and VPC id: ${module.vpc.vpc_id} >> vpc-time.txt"
+    working_dir = "local-exec-output-files"
+  }
 }
