@@ -1,11 +1,3 @@
-resource "aws_db_instance" "rds-instance" {
-  allocated_storage    = 10
-  db_name              = "mydbgopal"
-  engine               = "mysql"
-  engine_version       = "5.7"
-  instance_class       = "db.t3.micro"
-  username             = "gopal"
-  password             = var.password
-  parameter_group_name = "default.mysql5.7"
-  skip_final_snapshot  = true
+resource "random_id" "id" {
+    byte_length = 8
 }
