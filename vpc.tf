@@ -15,3 +15,21 @@ resource "aws_subnet" "db" {
   ###below line will ensure that the subnet are create only in az which is avaialbe state
   availability_zone = data.aws_availability_zones.available.names[count.index]
 }
+
+resource "aws_security_group" "db" {
+  vpc_id = aws_vpc.db.id 
+  ingress   {
+    cidr_blocks = [ aws_vpc.db.cidr_block ]
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    
+  } 
+  egress  {
+    cidr_blocks = [ aws_vpc.db.cidr_block ]
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    
+  }
+}
