@@ -7,7 +7,9 @@ terraform {
       #in production always put this version number
     }
     ###adding backend as s3 for remote state storage
-    
+   random = {
+      source = "hashicorp/random"
+   } 
     null = {
       source = "hashicorp/null"
     }
