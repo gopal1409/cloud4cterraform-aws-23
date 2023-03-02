@@ -10,7 +10,8 @@ data "aws_availability_zones" "available" {
 resource "aws_subnet" "db" {
   count = 2
   vpc_id = aws_vpc.db.id
+  ###cidrsubnet it is a function in terraform to create multiple subnet using index
   cidr_block = cidrsubnet(aws_vpc.db.cidr_block,8,count.index)
+  ###below line will ensure that the subnet are create only in az which is avaialbe state
   availability_zone = data.aws_availability_zones.available.names[count.index]
-
 }
