@@ -4,6 +4,7 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [aws_security_group.instance.id ]
   user_data = <<EOF
   #!/bin/bash 
+  sudo apt-get update -y
   sudo apt install apache2 -y
   echo "Hello,World" > /var/www/html/index.html
   EOF
