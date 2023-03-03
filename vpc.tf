@@ -1,10 +1,12 @@
 resource "aws_vpc" "db" {
   cidr_block           = "10.0.0.0/16"
+  ###whenever we create an rds instance it will always generate the endpint as dns name
   enable_dns_support   = true
   enable_dns_hostnames = true
 }
 data "aws_availability_zones" "available" {
   state = "available"
+  ###to check what are az whcih is avalable
 }
 
 resource "aws_subnet" "db" {
