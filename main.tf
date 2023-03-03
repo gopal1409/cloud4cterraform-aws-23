@@ -3,17 +3,16 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro" 
   vpc_security_group_ids = [aws_security_group.instance.id ]
   user_data = <<EOF
-  #!/bin/bash 
-  sudo apt-get update -y
-  sudo apt install apache2 -y
-  echo "Hello,World" > /var/www/html/index.html
-  EOF
+#!/bin/bash
+echo "Hello, World!" > index.html
+nohup busybox httpd -f -p 8080 &
+EOF
 }
 
 resource "aws_security_group" "instance" {
   ingress {
-    from_port = 80
-    to_port = 80
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
