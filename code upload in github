@@ -1,0 +1,21 @@
+####
+cd Desktop 
+git clone https://github.com/gopal1409/cloud4cvpc.git
+###got inside the directory
+cd cloud4cvpc
+###remove the git refrence of my
+rm .git
+###create git global varaible
+git config --global user.name "gopal"
+git config --global user.email "gopal1409@gmail.com"
+git init
+git add .
+git commit -m "vpc intial commit"
+#####create a repository in git hub
+###copy the remote refrence from github and paster it in your folder where the project is located. 
+###generat the ssh key 
+ssh-keygen -t rsa
+cat C:\Users\gopal/.ssh/id_rsa.pub
+####copy the public key and paste it in github
+###then finally upload the code
+git push origin master
